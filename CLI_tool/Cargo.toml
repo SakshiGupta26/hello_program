@@ -1,0 +1,13 @@
+[package]
+name = "CLI_tool"
+version = "0.1.0"
+edition = "2021"
+#Also changed Rust edition to 2021 because 2024 is not stable yet and causes clap derive issues.
+[dependencies]
+clap = { version = "4.5.42", features = ["derive"] }
+pulldown-cmark = "0.13.0"
+maud = "0.26.0"  # <-- use maud instead of mau
+
+# after any change used 
+#cargo clean
+#cargo build

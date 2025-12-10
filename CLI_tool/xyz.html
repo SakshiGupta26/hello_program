@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Markdown to HTML Output</title></head><style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        max-width: 850px;
+                        margin: 2rem auto;
+                        padding: 1.5rem;
+                        background: #fafafa;
+                        color: #222;
+                        line-height: 1.7;
+                    }
+                    h1, h2, h3 { color: #333; }
+                    code {
+                        background: #eee;
+                        padding: 2px 5px;
+                        border-radius: 6px;
+                        font-size: 0.95em;
+                    }
+                    pre code {
+                        display: block;
+                        padding: 1rem;
+                    }
+                    blockquote {
+                        border-left: 4px solid #ccc;
+                        padding-left: 12px;
+                        color: #555;
+                        font-style: italic;
+                    }
+                    .dark-mode {
+                       background: #121212;
+                       color: #e6e6e6;
+                    }                 
+                    </style><body><h1>Markdown to HTML CLI Tool (Rust Project)</h1>
+<p>This is my first Rust project! 🎉<br />
+It is a command-line tool that converts Markdown files into HTML format.</p>
+<hr />
+<h2>✨ Features</h2>
+<ul>
+<li>Accepts Markdown input from a file</li>
+<li>Converts Markdown into HTML using a Rust library (e.g., <code>pulldown_cmark</code> or <code>comrak</code>)</li>
+<li>Outputs a clean and styled HTML document</li>
+<li>Simple and beginner-friendly CLI</li>
+</ul>
+<hr />
+<h2>🛠️ Technologies Used</h2>
+<ul>
+<li><strong>Rust</strong> programming language</li>
+<li><strong>Cargo</strong> for package &amp; project management</li>
+<li><strong>Markdown parser crate</strong> (like pulldown-cmark)</li>
+<li><strong>Maud</strong> (or HTML template rendering crate — whichever you used)</li>
+</ul>
+<hr />
+<h2>📌 Purpose</h2>
+<p>This project helps me learn:</p>
+<ul>
+<li>Rust syntax &amp; ownership concepts</li>
+<li>Working with external crates</li>
+<li>File I/O handling in Rust</li>
+<li>Building real CLI tools</li>
+</ul>
+<hr />
+<h2>🚀 Future Improvements</h2>
+<ul>
+<li>Support for images, lists &amp; tables</li>
+<li>Live preview in browser</li>
+<li>Custom HTML themes</li>
+<li>Command-line flags for more options</li>
+</ul>
+<hr />
+<h3>Thank you for checking out my project! 😄</h3>
+<hr></hr><h3>Thank you for checking out my project! 😄</h3><button id="theme-toggle">🌗 Theme</button><script>
+        const body = document.body;
+        const saved = localStorage.getItem(&quot;theme&quot;);
+        if (saved === &quot;dark&quot; ||
+            (!saved &amp;&amp; window.matchMedia(&quot;(prefers-color-scheme: dark)&quot;).matches)) {
+            body.classList.add(&quot;dark-mode&quot;);
+        }
+        document.getElementById(&quot;theme-toggle&quot;).onclick = () =&gt; {
+            body.classList.toggle(&quot;dark-mode&quot;);
+            localStorage.setItem(&quot;theme&quot;,
+                body.classList.contains(&quot;dark-mode&quot;) ? &quot;dark&quot; : &quot;light&quot;);
+        };
+        </script></body></html>

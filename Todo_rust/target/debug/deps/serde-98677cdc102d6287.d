@@ -1,0 +1,14 @@
+C:\Users\SAKSHI GUPTA\hello_program\Todo_rust\target\debug\deps\serde-98677cdc102d6287.d: C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\SAKSHI\ GUPTA\hello_program\Todo_rust\target\debug\build\serde-aff10547193e0874\out/private.rs
+
+C:\Users\SAKSHI GUPTA\hello_program\Todo_rust\target\debug\deps\libserde-98677cdc102d6287.rlib: C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\SAKSHI\ GUPTA\hello_program\Todo_rust\target\debug\build\serde-aff10547193e0874\out/private.rs
+
+C:\Users\SAKSHI GUPTA\hello_program\Todo_rust\target\debug\deps\libserde-98677cdc102d6287.rmeta: C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs C:\Users\SAKSHI\ GUPTA\hello_program\Todo_rust\target\debug\build\serde-aff10547193e0874\out/private.rs
+
+C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\lib.rs:
+C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\integer128.rs:
+C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\mod.rs:
+C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\de.rs:
+C:\Users\SAKSHI\ GUPTA\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\serde-1.0.228\src\private\ser.rs:
+C:\Users\SAKSHI\ GUPTA\hello_program\Todo_rust\target\debug\build\serde-aff10547193e0874\out/private.rs:
+
+# env-dep:OUT_DIR=C:\\Users\\SAKSHI GUPTA\\hello_program\\Todo_rust\\target\\debug\\build\\serde-aff10547193e0874\\out

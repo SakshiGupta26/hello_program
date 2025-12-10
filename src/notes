@@ -1,0 +1,2662 @@
+// const GLOBAL_CONST:u8 =100;
+// fn main() {
+//     //   let emp_info:(&str,u8) = ("Ramesh",50);
+// //   let emp_name =emp_info.0;
+// //   let emp_age = emp_info.1;
+// //  println!("Employee Name={}, Employee Age{}",emp_name,emp_age);
+
+// //destructuring
+// //  let(employee_name,employee_age) = emp_info;
+// //  println!("Employee Name={},Employee Age={}",employee_name,employee_age);
+// // print_value(5);
+// // let num1:u8 = 10;
+// // let num2:u8 = 20;
+// // let result:u8= add(num1,num2);
+// // println!("The sum of {} and {} is {}",num1,num2,result);
+
+//Variable Scope in Rust
+// let outside_variable =5;
+// {
+//     let inside_variable =10;
+//     println!("Inside Block:{}",inside_variable);
+//     println!("Outside Block:{}", outside_variable);
+// }
+// println!("Outside Block:{}", outside_variable);
+// print_value()
+// }
+// fn print_value(){
+//     println!("{}",GLOBAL_CONST);
+// }
+
+//Functions in Rust
+// fn add(item1:u8,item2:u8)->u8{
+//     return item1+item2;
+// }
+// fn print_value(item:u8){
+//     println!("{}",item);
+// }
+
+//Ownership and Move Semantics
+// fn main(){
+//     // let a=5;
+//     // let b=a;
+//     // println!("a={},b={}",a,b);
+//     let str1 =String::from("Hello");//str1 owns the String "Hello"
+//     let str2=str1;//transfer ownership from str1 to str2 and str2 is new owner
+//      println!("str2={}",str2);
+// }
+
+//ownership with functions-Ownership is Rust’s way of ensuring memory safety without a garbage collector.
+// fn main(){
+//     let x=5;
+//     process_integer(x);
+//     println!("The value of x in main() is {}",x);
+// }
+// fn process_integer(x:u8){
+//     println!("The value of x in process_integer() is {}",x);
+// }
+
+//Ownership Transfer When Passing Variables to Functions
+// fn main(){
+//     let x:String =String::from("Hello");
+//     process_string(x);
+//     println!("The value of x in main() is {}",x);
+// }
+// fn process_string(item:String){
+//     println!("The value of item in process_string() is {}",item);
+// }
+
+//Ownership in Function Return and Parameter Passing
+// fn main(){
+//     let s1:String = get_string();
+//     println!("The value of s1: {}",s1);
+//     let s2:String =String::from("World");
+//     let s3:String = send_get_string(s2);
+// println!("this is s3: {}",s3);
+// }
+// fn get_string()->String{
+//     let new_string = String::from("Hello");
+//     return new_string;
+// }
+// fn send_get_string(received_string:String)->String{
+//     return received_string;
+//}
+
+//by usung tuplle
+// fn main(){
+//     let s1:String =String::from("Hello");
+//     let (s2,len) =calculate_length(s1);
+//     println!("The length of {} is {}",s2,len);
+// }
+// fn calculate_length(s:String)->(String,usize){
+//     let length= s.len();
+//     return (s,length);
+// }
+
+//by using clone()-When ownership moves and you still want to use the original value, you can explicitly duplicate the data
+// fn main(){
+//     let s1:String =String::from("Hello");
+//     let len=calculate_length(s1.clone());
+//     println!("The length of {} is {}",s1,len);
+// }
+// fn calculate_length(s:String)->usize{
+//     let length= s.len();
+// return length;
+// }
+
+//borrowing-Borrowing means using a reference to a value without taking ownership.
+// fn main(){
+//     let s1:String =String::from("Hello");
+//     let len=calculate_length(&s1);
+//     println!("The length of {} is {}",s1,len);
+// }
+// fn calculate_length(s:&String)->usize{
+//     return s.len();
+// }
+
+//Appending-means adding new data to an existing value, such as adding characters to a String or adding elements to a Vector
+// fn main(){
+//     let mut s1:String=String::from("Hello");
+//     append_string(&mut s1);
+//     println!("the new string is {}",s1)
+// }
+// fn append_string(s3:&mut String){
+//     s3.push_str(" World");
+// }
+//
+// fn main(){
+//     let mut s1:String=String::from("Hello");
+//     let w1 = &mut s1;
+//     println!("r1={}",w1);
+//     let w2 =&mut s1;
+//     println!("r2={}",w2);
+// }
+
+//Multiple immutable references-A reference in Rust is a pointer that stores the memory address of another value
+// fn main() {
+//     let mut s1:String = String::from("Hello");
+//     let w1 =&mut s1;
+//     w1.push_str(" World");
+//     println!("w1={}",w1);
+//     let w2 = &s1;
+//     println!("r2={}",r2);
+// }
+
+//Address of a reference-address of a reference is the location in memory where the reference itself is stored.
+// fn main(){
+//     let x=19;
+//     println!{"The address of x is {:p}",&x};
+//     let y =&x;
+//     println!("The value of y is {:p}",y);
+// }
+
+//Mutable reference dereferencing
+// fn main() {
+//     let mut x =5;
+//     x=x+1;
+//     let y =&mut x;
+//     *y=*y+1;
+//     println!("x={}",*y);
+// }
+
+//Borrowing with References in Rust
+// fn main(){
+//     let s1:String =String::from("Hello");
+//     let len: usize = calculate_length(&s1);
+//     println!("The length of {} is {}",s1,len);
+// }
+// fn calculate_length(s:&String) -> usize{
+//     return s.len();
+// }
+
+//Dangling reference-A dangling reference occurs when a reference points to memory that has already been freed or is no longer valid.
+// fn main(){
+//     let referenncd_to_nothing = create_string_ref();
+// }
+// fn create_string_ref() ->&String {
+//     let s:String = String::from("Hello");
+//     return &s;
+// }
+
+//Programming concepts
+
+//float type
+// fn main() {
+//     let float32_number: f32 =3.14;
+//     let float64_number =6.28;
+//     println!("Float32 number: {}",float32_number);
+//     println!("Float64 number: {}",float64_number);
+// }
+// //bool type 
+// fn main(){
+//     let is_raining:bool =true;
+//     let is_sunny = false;
+//     let need_umbrella = is_raining && !is_sunny;
+//     let need_glasses = is_raining || is_sunny;
+//     println!("Need umberalla is {},need glassses is {}",need_umbrella,need_glasses);
+// }
+
+//character type
+// fn main(){
+//     let letter_a ='a'; //Ascii value is 97
+//     let emoji ='😊';
+//     let kanji ='漢';
+//     println!("Letter a: {}",letter_a);
+//     println!("Emoji: {}",emoji);
+//     println!("Kanji: {}",kanji);
+// }
+
+// //Array
+// fn main(){
+//      let mut arr1: [i32; 5] = [2, 56, 64, 56, 23];
+//      println!("arr1[0]={}",arr1[0]);
+//      println!("arr1={:?}",arr1);
+//      arr1[2] =30;
+//      println!("arr1={:?}",arr1);
+//      println!("Array length is {}",arr1.len());
+// }
+
+// //Array Declare
+// fn main(){
+//     //Declare an array named a1 of type [i64; 5] without initializing it
+//     let a1: [i64; 5];
+//     //initialize the array a1 with values [12,45,34,543,54]
+//     a1 = [12,45,34,543,54];
+//     //Print the debug representation of array a1
+//     println!("a1 is {:?}",a1);
+//     //Declare a mutable array named a2 initialized with [12,45,24,52,54]
+//     let mut a2 =[12;45];
+//     //Modify the first element of a2 to 9
+//     a2[0] = 9;
+//     //Print the debug representation of array a2
+//     println!("a2 is {:?}", a2);
+// }
+
+//Mutable references with arrays
+// fn main() {
+//     let mut arr = ["Hello", "from", "Rust"];
+//     write_arr(&mut arr);
+//     println!("Array in main after modification = {:?}", arr);
+// }
+// fn write_arr(arr1: &mut [&str; 3]) {
+//     arr1[0] = "Fellow";
+//     println!("Modified in function = {:?}", arr1);
+// }
+
+//Reading an array via function
+// fn main(){
+//     let arr: [&str;3]=["Hello","World","Coders"];
+//     read_arr(arr);
+//     println!("arr={:?}",arr);
+// }
+// fn read_arr(arr2:[&str;3]){
+//     println!("arr2={:?}",arr2);
+// }
+
+//Vector-Dynamic Array that can grow or shrink in size at runtime
+// fn main(){
+//     // let mut v:Vec<i32> = Vec::new();
+//     // //Or
+//     // let mut v =Vec::<i32>::new();
+//     //Or with initial values
+//     let mut v = vec![1,2,3,4,5];
+//     // v.push(1);
+//     // v.push(3);
+//     // v.push(5);
+//     println!("Vector v={:?}",v);
+// }
+
+//Vector functions
+// fn main() {
+//     // Creating vectors (3 different methods)
+//     let mut v1: Vec<i32> = Vec::new();       // Empty vector with explicit type
+//     let mut v2 = Vec::<i32>::new();          // Type is mentioned using generic syntax
+//     let mut v3 = vec![100, 101, 102];        // Macro creates vector with initial values
+//     // Adding values to vectors
+//     v1.push(10);
+//     v1.push(20);
+//     v3.push(1);
+//     v3.push(5);
+//     // Removing the last element (LIFO)
+//     v3.pop(); // removes 5
+//     // Insert at a specific position
+//     v3.insert(0, 99); // adds 99 at index 0 → shifts others right
+//     // Removing element at specific index
+//     v3.remove(1); // removes element at index 1 (101)
+//     // Replacing value using indexing
+//     v3[0] = 55; // replaces 99 with 55
+//     // Sorting example vector
+//     let mut sort_vec = vec![5, 3, 8, 1, 2];
+//     sort_vec.sort();    // ascending: [1,2,3,5,8]
+//     sort_vec.reverse(); // reverse:   [8,5,3,2,1]
+//     // Capacity handling (memory managed by Rust)
+//     println!("v1 capacity before reserve = {}", v1.capacity());
+//     v1.reserve(10); // increases capacity (no reallocation later)
+//     println!("v1 capacity after reserve = {}", v1.capacity());
+//     v1.shrink_to_fit(); // remove unused capacity
+//     println!("v1 capacity after shrink_to_fit = {}", v1.capacity());
+//     // Length and empty check
+//     println!("v3 length = {}", v3.len()); // number of elements
+//     println!("Is v2 empty? {}", v2.is_empty()); // checks if vector is empty
+//     // Searching inside a vector
+//     println!("v3 contains 101? {}", v3.contains(&101)); // checks existence
+//     println!("Position of 55 in v3 = {:?}", v3.iter().position(|&x| x == 55));
+//     // Index access (unsafe if out of range)
+//     if v3.len() > 1 {
+//         println!("v3[1] = {}", v3[1]);
+//     }
+//     // Safe access using .get() → returns Option<T>
+//     let opt = v3.get(10); // out of range index
+//     match opt {
+//         Some(value) => println!("Value: {}", value),
+//         None => println!("No value found at that index"),
+//     }
+//     // Creating a slice (part of vector, borrowed view)
+//     let slice = &v3[0..v3.len()];
+//     println!("Slice of v3 = {:?}", slice);
+//     // Condition-based removal: keep only numbers >= 60
+//     v3.retain(|&x| x >= 60);
+//     println!("v3 after retain: {:?}", v3);
+//     // Append moves all values from v3 ---> v1
+//     v1.append(&mut v3);
+//     println!("v1 = {:?}", v1);
+//     println!("v2 = {:?}", v2);
+//     println!("Sorted & Reversed sort_vec = {:?}", sort_vec);
+//     // Clear vector (remove all elements)
+//     v2.clear();
+//     println!("v2 after clear = {:?}", v2);
+//     // Iterate using .iter() → immutable borrow
+//     println!("\nUsing iter():");
+//     for val in v1.iter() {
+//         println!("Value = {}", val);
+//     }
+//     // Iterate using .iter_mut() → mutable borrow
+//     println!("\nUsing iter_mut():");
+//     for val in v1.iter_mut() {
+//         *val += 1; // modify original values
+//         println!("Updated = {}", val);
+//     }
+//     // .into_iter() → moves values (ownership transfer)
+//     println!("\nUsing into_iter():");
+//     for val in v1.clone().into_iter() { 
+//         // clone() used to avoid losing v1
+//         println!("Owned value = {}", val);
+//     }
+// }
+
+//Different ways of creating Vector
+// let mut v: Vec<i32> = Vec::new();
+// let mut v = Vec::<i32>::new();
+// let v1= vec![1,2,4,5,5]//Creates a vector with initial values
+// let v2: Vec<i32> =vec![0;5]//Create a vector with 5 elements initialized to 0
+
+//Bowwering in vector
+// fn main(){
+//     let vrr: Vec<&str> =vec!["Hello","World","Coders"];
+//     write_vrr(&vrr);
+//     println!("vrr={:?}",vrr);
+// }
+// fn write_vrr(vrr2: &Vec<&str>){
+//     println!("vrr2={:?}",vrr2);
+// }
+
+//Mutable references
+// fn main(){
+//     let mut vrr: Vec<&str> = vec!["Hello", "World"];
+//     write_vrr(&mut vrr);
+//     println!("vrr={:?}", vrr);
+// }
+// fn write_vrr(vrr2: &mut Vec<&str>){
+//     vrr2.push("Eater");
+//    println!("vrr = {:?}", vrr);
+// }
+
+//Mutable references
+// fn main(){
+//     let mut vrr: Vec<&str> = vec!["Hello", "World"];
+//     write_vrr(&mut vrr);
+//     println!("vrr={:?}", vrr);
+// }
+// fn write_vrr(vrr2: &mut Vec<&str>){
+//     vrr2.push("Eater");
+//    println!("vrr = {:?}", vrr);
+// }
+
+//If else
+// fn main(){
+//     let number =12;
+//     if number %2==0 && number >0{
+//         println!("The number is even");
+//     }else{
+//         println!("The number is odd");
+//     }
+// }
+
+//simple loop
+// fn main(){
+//     loop{
+//         let x=4;
+//         println!("The value of x is {}",x);
+//     }
+// }
+
+//while loop
+// fn main(){
+//     let mut count =0;
+//     while count <5{
+//         println!("The count is {}",count);
+//         count +=1;
+// }}
+
+//for loop
+// fn main(){
+//     let arr=[1,2,3,4,5];
+//     for element in &arr{
+//         println!("{}",element);  
+//         }
+// }
+
+// Pattern matching with match statement
+// fn main(){
+//     let number =5;
+//     match number {
+//         1 => println!("One"),
+//         2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
+//         13..=19 => println!("A teen"),
+//         _ => println!("Ain't special"),
+//     }
+// }
+
+//Matching in Rust uses the match keyword to 
+//compare a value against multiple patterns
+// and run code depending on which pattern 
+//matches
+
+// matching with function
+// fn main() {
+//     fn is_even(n: i32) -> bool {
+//         n % 2 == 0  // return true if even
+//     }
+//     let number = 4;
+//     match number {
+//         x if is_even(x) => println!("The number is even"),
+//         _ => println!("The number is odd"),  // covers all remaining cases
+//     }
+// }
+
+// //I/O
+// use std::io;
+// fn main(){
+//    let mut input = String::new();
+//    println!("Please enter some input:");
+//    io::stdin().read_line(&mut input);
+//    println!("User input:{}",input);
+// }
+
+// //I/O using expect
+// use std::io;
+// fn main() {
+//     let mut input = String::new();
+//     println!("Please enter some input:");
+//     io::stdin()
+//         .read_line(&mut input)
+//         .expect("Failed to read line");
+//     println!("100% lover: {}", input);
+// }
+
+// // guessing_game
+// use std::cmp::Ordering;
+// use std::io;
+// use rand::Rng;
+// fn main(){
+//     println!("Guess the number!");
+//     let secret_number = rand::thread_rng().gen_range(1..=100);
+//     // println!("The secret number is {}",secret_number);
+//     loop{
+//     println!("Please input your guess.");
+//     let mut guess = String::new();
+//     io::stdin()
+//         .read_line(&mut guess)
+//         .expect("Failed to read lines");
+//     let guess: u32 =match guess.trim().parse(){
+//         Ok(num) => num,
+//         Err(_) => continue,
+//     };
+//     println!("You guessed: {}", guess);
+//     match guess.cmp(&secret_number){
+//         Ordering::Less => println!("Too small!"),
+//         Ordering::Greater => println!("Too big!"),
+//         Ordering::Equal => {
+//             println!("You win");
+//         break;
+//     }
+//     }  
+// }
+// }
+
+//Tic Tac 
+// //cd Tictac
+// use std::io;
+// const PLAYER_X: char = 'X';
+// const PLAYER_O: char = 'O';
+// const BOARD_SIZE: usize = 3;
+// type Board = [[char; BOARD_SIZE]; BOARD_SIZE];
+// fn initialize_board() -> Board {
+//     [[' '; BOARD_SIZE]; BOARD_SIZE]
+// }
+// fn print_board(board: &Board) {
+//     for row in board {
+//         for cell in row {
+//             print!("{} ", cell);
+//         }
+//         println!();
+//     }
+// }
+// fn get_player_move(current_player: char, board: &Board) -> (usize, usize) {
+//     loop {
+//         println!("Player {}, enter your move (row and column): ", current_player);
+//         let mut input = String::new();
+//         io::stdin()
+//             .read_line(&mut input)
+//             .expect("Failed to read line");
+//         let coordinates: Vec<usize> = input
+//             .split_whitespace()
+//             .filter_map(|s| s.parse::<usize>().ok())
+//             .collect();
+//         if coordinates.len() == 2 {
+//             let (row, col) = (coordinates[0], coordinates[1]);
+//             if row < BOARD_SIZE && col < BOARD_SIZE && board[row][col] == ' ' {
+//                 return (row, col);
+//             }
+//         }
+//         println!("Invalid input! Please try again.");
+//     }
+// }
+// fn check_winner(current_player:char,board:&Board)->bool{
+//     for row in 0..BOARD_SIZE{
+//         if board[row][0]==current_player && board[row][1]==current_player && board[row][2]==current_player{
+//           return true;
+//         } }
+//          for col in 0..BOARD_SIZE{
+//          if board[col][0]==current_player && board[col][1]==current_player && board[col][2]==current_player{
+//           return true;
+//         }  }
+//         if (board[0][0]==current_player && board[1][1]==current_player && board[2][2]==current_player) || 
+//               (board[0][2]==current_player && board[1][1]==current_player){
+//                 return true;
+//               }
+//     return false;
+// }
+// fn check_draw(board:&Board)->bool{
+//     for row in board{
+//         for cell in row{
+//             if *cell==' '{
+//                 return false;
+//             }
+//         }
+//     }
+//     return true;
+// }
+// fn play_game() {
+//     let mut board = initialize_board();
+//     let mut current_player = PLAYER_X;
+//     loop {
+//         println!("Current board:");
+//         print_board(&board);
+//         let (row, col) = get_player_move(current_player, &board);
+//         board[row][col] = current_player;
+//         if check_winner(current_player,&board){
+//             println!("Player {} wins!", current_player);
+//             break;
+//         }
+//         if check_draw(&board){
+//             println!("The game is a draw!");
+//             break;
+//         }
+//         current_player = if current_player == PLAYER_X {
+//             PLAYER_O
+//         } else {
+//             PLAYER_X
+//         };
+//     }
+// }
+// fn main() {
+//     println!("Welcome to Tic Tac Toe!");
+//     play_game();
+// }
+
+// Algebraic Data types
+
+// Structure
+// #[derive(Debug)]
+// struct Student {
+//     name: String,
+//     age: u8,
+//     pass: bool,
+// }
+// fn main() {
+//     let stu: Student = Student {
+//         name: "Raju".to_owned(), // removed extra space
+//         age: 12,
+//         pass: true,
+//     };
+//     println!("Student: {:?}", stu);
+//     println!("Student name:{}, Student age:{}" , stu.name,stu.pass);
+// }
+
+// Ownership in structure
+// #[derive(Debug)]
+// struct Rectangle {
+//     length: u8,
+//     breadth: u8,
+// }
+// fn area_rec(rec: Rectangle) -> u8 {
+//     rec.length * rec.breadth // last expression → return value
+// }
+// fn main() {
+//     let rec_one: Rectangle = Rectangle {
+//         length: 2,
+//         breadth: 5,
+//     };
+//     let rec_two: Rectangle = Rectangle {
+//         length: 7,
+//         breadth: 5,
+//     };
+//     let result_one: u8 = area_rec(rec_one);//tranfer of ownership from rec_one to rec
+//     println!("Result One: {}", result_one);
+//     let result_two: u8 = area_rec(rec_two);//tranfer of ownership from rec_two to rec
+//     println!("Result Two: {}", result_two);
+// }
+
+//By Borrowing in structure
+// Ownership in structure
+// #[derive(Debug)]
+// struct Rectangle {
+//     length: u8,
+//     breadth: u8,
+// }
+// fn area_rec(rec: &Rectangle) -> u8 {
+//     rec.length * rec.breadth // last expression → return value
+// }
+// fn main() {
+//     let rec_one: Rectangle = Rectangle {
+//         length: 2,
+//         breadth: 5,
+//     };
+//     let rec_two: Rectangle = Rectangle {
+//         length: 7,
+//         breadth: 5,
+//     };
+//     let result_one: u8 = area_rec(&rec_one);//value is borrwed
+//     println!("Result One: {}", result_one);
+//     println!("{:?}", rec_one);
+//     let result_two: u8 = area_rec(&rec_two);//value is borrwed
+//      println!("{:?}", rec_two);
+//     println!("Result Two: {}", result_two);
+// }
+
+// //for mutable structure
+// #[derive(Debug)]
+// struct Rectangle {
+//     length: u8,
+//     breadth: u8,
+// }
+// fn area_rec(rec: &Rectangle) -> u8 {
+//     rec.length * rec.breadth // last expression → return value
+// }
+// fn change_len(rec: &mut Rectangle){
+//     rec.length = 1;
+// }
+// fn main() {
+//     let mut rec_one: Rectangle = Rectangle {
+//         length: 2,
+//         breadth: 5,
+//     };
+//     let rec_two: Rectangle = Rectangle {
+//         length: 7,
+//         breadth: 5,
+//     };
+//     change_len(&mut rec_one);
+// }
+
+//Impl, Associative Function and Methods
+// #[derive(Debug)]
+// struct Rectangle {
+//     length: u8,
+//     breadth: u8,
+// }
+// impl Rectangle{
+//     //Associative function
+//     fn new(new_length: u8, new_breadth: u8) -> Self{
+//        Self { 
+//          length: new_length,
+//          breadth:new_breadth,
+//          }
+//     }
+//     //methods
+// //     fn area(&mut self) -> u8 {
+// //         self.length=3;
+// //     self.length * self.breadth // last expression → return value
+// // }
+//     fn area(&self) -> u8 {
+//     self.length * self.breadth // last expression → return value
+// }
+// }
+// fn main() {
+//      let rec_one: Rectangle =Rectangle::new(10,5);
+//     // let mut rec_one: Rectangle =Rectangle::new(10,5);
+//     println!("{:?}", rec_one);
+//     let rec_two: Rectangle =Rectangle::new(6,5);
+//     println!("{:?}", rec_two);
+//     let result_one:u8 = rec_one.area();//transfered the ownership of Rectangle::new(10,5) from rec_one to self
+//     println!("Result One:{}",result_one);
+// }
+
+//Enums-An enum in Rust is a type that can have multiple named variants, allowing a value to be one of several possible forms.
+// enum Color{
+//     Red,
+//     Yellow,
+//     Blue,
+// }
+// fn main() {
+//     let color: Color= Color::Yellow;
+//     match color{
+//         Color::Blue => println!("Blue"),
+//         Color::Yellow => println!("Yellow"),
+//         Color::Red => println!("Red"),
+//     }
+// }
+
+//enums using Impl, Associative Function and Methods
+// #[derive(Debug)]
+// enum Shape {
+//     Circle,
+//     Rectangle,
+// }
+// impl Shape{
+//     fn new_circle() ->Self{
+//         Self::Circle
+//     }
+// }
+// fn main(){
+//     let circle:Shape= Shape::new_circle();
+//     println!("Circle:{:?}", circle);
+// }
+
+//Enums exmaple circle rectangle
+// #[derive(Debug)]
+// enum Shape {
+//     Circle(f64),
+//     Rectangle(f64, f64),
+// }
+// impl Shape {
+//     fn new_circle(radius: f64) -> Self {
+//         Self::Circle(radius)
+//     }
+// }
+// fn main(){
+//     let circle: Shape = Shape::new_circle(5.0);
+//     println!("Circle:{:?}", circle);
+// }
+
+// //Enums with Associated Data and Methods 
+// #[derive(Debug)]
+// enum Shape {
+//     Rectangle(f64, f64),
+//     Circle(f64),
+// }
+// impl Shape {
+//     fn new_circle(radius: f64) -> Self {
+//         Self::Circle(radius)
+//     }
+//     fn new_rectangle(len: f64, bre: f64) -> Self {
+//         Self::Rectangle(len, bre)
+//     }
+//     fn area(&self) -> f64 {
+//         match self {
+//             Shape::Circle(r) => 3.14 * r * r,
+//             Shape::Rectangle(l, b) => l * b,
+//         }
+//     }
+// }
+// fn main() {
+//     let circle: Shape = Shape::new_circle(5.0);
+//     println!("Circle: {:?}, Area: {}", circle, circle.area());
+//     let rec = Shape::new_rectangle(2.0, 4.0);
+//     println!("Rectangle: {:?}, Area: {}", rec, rec.area());
+// }
+
+//Optional Enums
+// fn main() {
+//     let user_id_1 =1;
+//     let user_id_2 =2;
+//     match get_user_phone_number(user_id_1){
+//         Some(item) => println!("Data:{}", data)
+//         None => println!("User mob num does not exist"),
+//     }  
+//     // let value_1 = get_user_phone_number(user_id_1);
+//     // let value_2  = get_user_phone_number(user_id_2);
+//     // println!("Value 1: {:?}", value_1);
+//     // print!("Value 2: {:?}", value_2);
+// }
+// fn get_user_phone_number(user_id: i32) -> Option<i32>{
+//     let mob_num =3456;
+//     if user_id == 1 {
+//         return Some(mob_num);
+//     } else {
+//         return None;
+//     }
+// }
+
+// //Method-is a function defined inside an impl block that is associated with a struct or enum.
+// #[derive(Debug)]
+// struct Rectangle {
+//     width: u32,
+//     height: u32,
+// }
+// impl Rectangle {
+//     // 1️⃣ Immutable method — only reads data
+//     fn area(&self) -> u32 {
+//         self.width * self.height
+//     }
+//     // 2️⃣ Mutable method — can modify values
+//     fn make_square(&mut self) {
+//         self.height = self.width;
+//     }
+//     // 3️⃣ Method with parameters
+//     fn can_hold(&self, other: &Rectangle) -> bool {
+//         self.width >= other.width && self.height >= other.height
+//     }
+//     // 4️⃣ Associated function (no self → like a constructor)
+//     fn new(width: u32, height: u32) -> Self {
+//         Rectangle { width, height }
+//     }
+//     // 5️⃣ Static-like function
+//     fn print_info() {
+//         println!("This is Rectangle struct!");
+//     }
+// }
+
+//Result enum
+//fn divide(x: i32, y: i32) -> Result<i32 ,i32>{
+//     if y ==0{
+//         return Err(89);
+//     } else {
+//         return Ok(x/y);
+//     }
+// }
+// fn main(){
+//     let result = divide(10,0);
+//     println!("Result:{:?}", result);
+// }
+
+//Generic type in result enum- allows you to write functions, structs, enums, or methods that can work with different data types without rewriting the code.
+// use std::fmt::Display;
+// fn print_data<T: Display>(data: T) {
+//     //println!("Data:{}", data);
+//     data
+// }
+// fn main() {
+//     let x=5;
+//     let y = true;
+//     let z = "Hello".to_owned();
+//     println!("Data:{}", print_data(x));
+//     println!("Data:{}", print_data(y));
+//     println!("Data:{}", print_data(z));
+// }
+
+//  trait-a collection of methods that define shared behavior.
+// If a type implements a trait, it must provide the required methods.
+// struct Circle {
+//     radius: f64,
+// }
+// trait Shape {
+//     fn area_circle(&self) ->f64;
+// }
+// impl Shape for Circle {
+//     fn area_circle(&self) -> f64 {
+//         3.14* self.radius*self.radius
+//     }
+// }
+// fn main(){
+//     let circle = Circle{radius:5};
+//     circle.area_circle();
+//     println!()
+// }
+
+// //Online learning platform to manage different types of courses
+// use std::fmt::Display;
+//  fn print_data<T: Display>(data: T) {
+//     println!("Data:{}", data);
+// }
+// #[derive(Debug)]
+// struct Workshop {
+//     title :String,
+//     instructor:String,
+//     duration:  u8,
+//  }
+//  #[derive(Debug)]
+//  struct Seminar {
+//     title:String,
+//     speaker:String,
+//     location:String,
+//  }
+// trait Course {
+//     fn get_overview(&self) ->String;
+// }
+// // impl Course for course {
+// //     fn get_overview(&self) ->String{
+// //      println!("This is overview of course");
+// //     }  
+// // }
+// impl Course for Workshop{
+//     fn get_overview(&self) ->String{
+//      format!("Workshop: {}, Instructor: {}, Duratin: {} hrs", self.title,self.instructor, self.duration)
+//     }
+// }
+// impl Course for Seminar{
+//    fn get_overview(&self) ->String{
+//      format!("Seminar:{}, Speaker:{}, Location: {}", self.title, self.speaker,self.location)
+//     }
+// }
+// fn main() {
+//      let Seminar = Seminar{
+//     title: String::from("Web3 Security"),
+//         speaker: String::from("Sakshi"),
+//         location: String::from("Noida"),
+//      };
+//     let workshop = Workshop {
+//         title: String::from("Rust Basics"),
+//         instructor: String::from("Sak"),
+//         duration: 8,
+//     };
+//        println!("{}",Seminar.get_overview());
+//     println!("{}", workshop.get_overview());
+// }
+
+//Recape of array with print,length,mutable,iter
+//fn main(){
+// let a1 = [10,34,56];
+// println!("a1 length is {}, first element is {}", a1.len(), a1[0]);
+// let a2 = [14,54,52];
+// println!("a2 length is {}, first element is {}", a2.len(), a2[0]);
+// for elem in a2.iter() {
+//     println!("{}",elem);
+// }
+// }
+
+// //Iterator
+// //Iterator Declaration
+// fn main() {
+//     let nums = vec![10, 20, 30, 40];
+//     // 1️⃣ iter() - Borrow iterator (read-only)
+//     let mut it1 = nums.iter();
+//     println!("it1.next() = {:?}", it1.next()); // Some(&10)
+//     println!("it1.next() = {:?}", it1.next()); // Some(&20)
+//     // 2️⃣ iter_mut() - Mutable iterator (modify values)
+//     let mut it2 = nums.iter_mut();
+//     if let Some(x) = it2.next() {
+//         *x += 5; // modifies nums[0]
+//     }
+//     println!("Modified nums = {:?}", nums);
+//     // 3️⃣ into_iter() - Takes ownership (values move out)
+//     let it3 = nums.clone().into_iter(); // clone so nums remains usable
+//     for val in it3 {
+//         println!("Moved value = {}", val);
+//     }
+//     // 4️⃣ Iterator from ranges
+//     let mut range_iter = 1..5;
+//     println!("range next = {:?}", range_iter.next()); // 1
+//     // 5️⃣ Creating iterator manually using next()
+//     let mut manual_iter = ["A", "B", "C"].iter();
+//     println!("Manual next = {:?}", manual_iter.next());
+//     println!("Manual next = {:?}", manual_iter.next());
+// }
+
+// map filter fold  any
+// fn main() {
+//     let nums = vec![1, 2, 3, 4, 5];
+//     // map → square each number
+//     let squares: Vec<i32> = nums.iter().map(|x| x * x).collect();
+//     println!("map (squares): {:?}", squares);
+//     // filter → keep even numbers
+//     let evens: Vec<i32> = nums.iter().filter(|x| *x % 2 == 0).cloned().collect();
+//     println!("filter (evens): {:?}", evens);
+//     // fold → sum of elements
+//     let sum: i32 = nums.iter().fold(0, |acc, x| acc + x);
+//     println!("fold (sum): {}", sum);
+//     // any → does any number > 3 ?
+//     let any_gt3 = nums.iter().any(|x| *x > 3);
+//     println!("any > 3: {}", any_gt3);
+//     // all → are all odd?
+//     let all_odd = nums.iter().all(|x| *x % 2 != 0);
+//     println!("all odd?: {}", all_odd);
+//     // find → first element > 3
+//     let found = nums.iter().find(|x| **x > 3);
+//     println!("find > 3: {:?}", found);
+//     // position → where is number 4?
+//     let pos = nums.iter().position(|x| *x == 4);
+//    println!("position of 4: {:?}", pos);
+//     // enumerate → show index + value
+//     println!("enumerate:");
+//     for (i, v) in nums.iter().enumerate() {
+//         println!("Index {} = {}", i, v);
+//     }
+//     // skip & take → slice using iter
+//     let slice: Vec<_> = nums.iter().skip(1).take(3).cloned().collect();
+//     println!("skip(1).take(3): {:?}", slice);
+//     // chain → join two iterators
+//     let nums2 = vec![6, 7];
+//     let chained: Vec<_> = nums.iter().chain(nums2.iter()).cloned().collect();
+//     println!("chained: {:?}", chained);
+//     // collect into set → remove duplicates
+//     use std::collections::HashSet;
+//     let dupes = vec![1, 2, 2, 3];
+//     let unique: HashSet<_> = dupes.into_iter().collect();
+//     println!("unique from set: {:?}", unique);
+// }
+
+// map + filter + collect chain flat_map → flatten nested structures sum + product count → number of items
+// fn main() {
+//     let nums = vec![1, 2, 3, 4, 5];
+//     // 1️⃣ map + filter + collect chain
+//     let result: Vec<i32> = nums
+//         .iter()
+//         .map(|x| x * 2)
+//         .filter(|x| *x > 5)
+//         .cloned()
+//         .collect();
+//     println!("map + filter > 5: {:?}", result);
+//     // 2️⃣ flat_map → flatten nested structures
+//     let nested = vec![vec![1, 2], vec![3, 4, 5]];
+//     let flat: Vec<i32> = nested.into_iter().flat_map(|v| v).collect();
+//     println!("flat_map(flatten): {:?}", flat);
+//     // 3️⃣ sum + product (consuming iterator)
+//     let s: i32 = nums.iter().sum();
+//     let p: i32 = nums.iter().product();
+//     println!("sum: {}, product: {}", s, p);
+//     // 4️⃣ count → number of items
+//     let count = nums.iter().count();
+//     println!("count: {}", count);
+//     // 5️⃣ max + min
+//     println!("max: {:?}, min: {:?}", nums.iter().max(), nums.iter().min());
+//     // 6️⃣ take_while & skip_while
+//     let take_while_vec: Vec<_> = nums.iter().take_while(|x| **x < 4).cloned().collect();
+//     let skip_while_vec: Vec<_> = nums.iter().skip_while(|x| **x < 3).cloned().collect();
+//     println!("take_while (<4): {:?}", take_while_vec);
+//     println!("skip_while (<3): {:?}", skip_while_vec);
+//     // 7️⃣ reversing iterator
+//     let rev: Vec<_> = nums.iter().rev().cloned().collect();
+//     println!("reverse: {:?}", rev);
+//     // 8️⃣ windows → sliding window iterator
+//     println!("windows of 2:");
+//     for w in nums.windows(2) {
+//         println!("{:?}", w);
+//     }
+//     // 9️⃣ chunks → chunk vector into parts
+//     println!("chunks of 2:");
+//     for c in nums.chunks(2) {
+//         println!("{:?}", c);
+//     }
+//     // 🔟 zip → combine two iterators
+//     let chars = vec!['a', 'b', 'c', 'd', 'e'];
+//     let zipped: Vec<_> = nums.iter().zip(chars.iter()).collect();
+//     println!("zip nums + chars: {:?}", zipped);
+//     // 1️⃣1️⃣ cycle → infinite repeat (use with limit)
+//     let cyc: Vec<_> = nums.iter().cycle().take(8).cloned().collect();
+//     println!("cycle(take 8): {:?}", cyc);
+// }
+
+//iteration in arrays
+// fn main(){
+//     let a =[1,4,73,67];
+//     let mut iter = a.into_iter();//ownership come from array to iterater
+//        assert_eq!(Some(1), iter.next());
+//     assert_eq!(Some(20),iter.next());
+//     assert_eq!(Some(73),iter.next());
+//      let mut iter = a.iter();//reference of array element
+//     //A call to next() returns the next value
+//     assert_eq!(Some(&1), iter.next());
+//     assert_eq!(Some(&20),iter.next());
+//     assert_eq!(Some(&73),iter.next());
+//     //...and then None once its's over
+//     assert_eq!(None,iter.next());
+//     //More calls may or may not return 'None'. Here they always will.
+//     assert_eq!(None, iter.next());
+//     assert_eq!(None, iter.next());
+// }
+
+// //Iterattor in Array(stack copy trait) by ownership
+// fn main(){
+//    let arr=[1,4,5,6];
+//    for item in &arr {
+//     println!("{}", item);
+//    }
+//    println!("{:?}",arr);
+//     for item in arr {
+//     println!("{}", item);
+//    }//even afer transfer the ownership it doesnot show error beause it is static data type
+//    println!("{:?}",arr);
+// }
+
+// //Iterattor in Vectors(heap)
+// fn main(){
+//     let vec: Vec<i32> = vec![1,2,3];
+//     //Vector ownership not transfer only reference
+//     for item in vec.iter(){
+//         //or  for item in &vec
+//         println!("{}", item);
+//     }
+//     //Vector ownership transfer
+//     for item in vec.into_iter(){
+//         //or item in vec
+//         println!("{}", item);
+//     }
+// }
+
+//Trait Iterator
+// Pedagogical view of the Iterator trait: signatures + explanations.
+// // Note: This file is explanatory only. The real std::iter::Iterator
+// // has many private/auxiliary types and implementations; here we show
+// // the public API signatures with comments to explain them.
+// pub trait Iterator {
+//     // The type of the elements produced by this iterator.
+//     // Each iterator implementation must define this associated type.
+//     type Item;
+//     // -----------------------------
+//     // Required method (must be implemented)
+//     // -----------------------------
+//     // Advance the iterator and return the next value.
+//     // Returns Some(item) while elements remain, and None when finished.
+//     // Implementors provide the logic of iteration here.
+//     fn next(&mut self) -> Option<Self::Item>;
+//     // -----------------------------
+//     // Provided helper/adaptor methods (default implementations)
+//     // Implemented in terms of `next()` unless otherwise noted.
+//     // -----------------------------
+//     // Try to advance and return exactly N items as an array.
+//     // If there are fewer than N items left, returns Err with an iterator over
+//     // the remaining items. (Nightly experimental API.)
+//     fn next_chunk<const N: usize>(
+//         &mut self,
+//     ) -> Result<[Self::Item; N], IntoIter<Self::Item, N>>
+//     where
+//         Self: Sized;
+//     // Returns a lower and optional upper bound on the number of remaining items.
+//     // (lower_bound, Option<upper_bound>). Default is (0, None).
+//     // Used for optimization (e.g., reserving capacity).
+//     fn size_hint(&self) -> (usize, Option<usize>);
+//     // Consume the iterator, counting how many items it yields.
+//     // This repeatedly calls next() until None and returns the count.
+//     fn count(self) -> usize
+//     where
+//         Self: Sized;
+//     // Consume the iterator and return the last element (or None).
+//     // Implementation traverses to the end and keeps the last seen item.
+//     fn last(self) -> Option<Self::Item>
+//     where
+//         Self: Sized;
+//     // Advance by n elements, returning Ok(()) if successful,
+//     // or Err(remaining_nonzero) if the iterator ended early.
+//     // (Nightly experimental API.)
+//     fn advance_by(&mut self, n: usize) -> Result<(), NonZero<usize>>;
+//     // Consume and return the nth element (zero-indexed).
+//     // All preceding elements are consumed/discarded.
+//     fn nth(&mut self, n: usize) -> Option<Self::Item>;
+//     // Create an iterator that yields every `step`th element.
+//     // Panics if step == 0. (Consumes the iterator.)
+//     fn step_by(self, step: usize) -> StepBy<Self>
+//     where
+//         Self: Sized;
+//     // Chain two iterators: yield items from self, then from other.
+//     fn chain<U>(self, other: U) -> Chain<Self, <U as IntoIterator>::IntoIter>
+//     where
+//         Self: Sized,
+//         U: IntoIterator<Item = Self::Item>;
+//     // Zip two iterators together to yield tuples `(a, b)`.
+//     // The zipped iterator ends when either side ends.
+//     fn zip<U>(self, other: U) -> Zip<Self, <U as IntoIterator>::IntoIter>
+//     where
+//         Self: Sized,
+//         U: IntoIterator;
+//     // Place a cloned separator between adjacent items.
+//     // Requires that Item: Clone. (Nightly/stabilized helper.)
+//     fn intersperse(self, separator: Self::Item) -> Intersperse<Self>
+//     where
+//         Self: Sized,
+//         Self::Item: Clone;
+//     // Like intersperse but separator is produced by a closure each time.
+//     fn intersperse_with<G>(self, separator: G) -> IntersperseWith<Self, G>
+//     where
+//         Self: Sized,
+//         G: FnMut() -> Self::Item;
+//     // Transform each item by applying closure `f`. Returns a new iterator.
+//     fn map<B, F>(self, f: F) -> Map<Self, F>
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item) -> B;
+//     // Apply closure `f` to each item for side-effects. Consumes the iterator.
+//     fn for_each<F>(self, f: F)
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item);
+//     // Keep only items where predicate(&Item) is true; yields those items.
+//     fn filter<P>(self, predicate: P) -> Filter<Self, P>
+//     where
+//         Self: Sized,
+//         P: FnMut(&Self::Item) -> bool;
+//     // Map each item to Option<B>, yielding only the `Some(b)` results.
+//     // Combines map + filter in one adapter.
+//     fn filter_map<B, F>(self, f: F) -> FilterMap<Self, F>
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item) -> Option<B>;
+//     // Yield pairs (index, item) where index is a usize starting from 0.
+//     fn enumerate(self) -> Enumerate<Self>
+//     where
+//         Self: Sized;
+//     // Adapt iterator to allow peeking at the next item without consuming it.
+//     fn peekable(self) -> Peekable<Self>
+//     where
+//         Self: Sized;
+//     // Skip elements while predicate returns true; start yielding once false.
+//     fn skip_while<P>(self, predicate: P) -> SkipWhile<Self, P>
+//     where
+//         Self: Sized,
+//         P: FnMut(&Self::Item) -> bool;
+//     // Yield items while predicate returns true; stop (end iterator) when false.
+//     fn take_while<P>(self, predicate: P) -> TakeWhile<Self, P>
+//     where
+//         Self: Sized,
+//         P: FnMut(&Self::Item) -> bool;
+//     // Map items while a closure returns Some(b); stop when it returns None.
+//     fn map_while<B, P>(self, predicate: P) -> MapWhile<Self, P>
+//     where
+//         Self: Sized,
+//         P: FnMut(Self::Item) -> Option<B>;
+//     // Skip the first `n` elements, then yield the rest.
+//     fn skip(self, n: usize) -> Skip<Self>
+//     where
+//         Self: Sized;
+//     // Yield at most the first `n` elements (empty after n).
+//     fn take(self, n: usize) -> Take<Self>
+//     where
+//         Self: Sized;
+//     // Stateful iterator adapter: keeps internal state `St` and applies `f`
+//     // to each item producing Option<B>. Useful for complex transformations.
+//     fn scan<St, B, F>(self, initial_state: St, f: F) -> Scan<Self, St, F>
+//     where
+//         Self: Sized,
+//         F: FnMut(&mut St, Self::Item) -> Option<B>;
+//     // Map each item to an IntoIterator and flatten the results into a single stream.
+//     fn flat_map<U, F>(self, f: F) -> FlatMap<Self, U, F>
+//     where
+//         Self: Sized,
+//         U: IntoIterator,
+//         F: FnMut(Self::Item) -> U;
+//     // Flatten an iterator of iterables one level (iterator of IntoIterator).
+//     fn flatten(self) -> Flatten<Self>
+//     where
+//         Self: Sized,
+//         Self::Item: IntoIterator;
+//     // Map windows of N contiguous items using provided function.
+//     // (Nightly experimental API.)
+//     fn map_windows<F, R, const N: usize>(self, f: F) -> MapWindows<Self, F, N>
+//     where
+//         Self: Sized,
+//         F: FnMut(&[Self::Item; N]) -> R;
+//     // Ensure iterator is fused: once it returns None, it will always return None.
+//     // Useful to make behavior predictable for non-fused iterators.
+//     fn fuse(self) -> Fuse<Self>
+//     where
+//         Self: Sized;
+//     // Inspect each item (call f(&item)) for side-effects, then pass item through.
+//     // Often used for debugging or logging in iterator chains.
+//     fn inspect<F>(self, f: F) -> Inspect<Self, F>
+//     where
+//         Self: Sized,
+//         F: FnMut(&Self::Item);
+//     // Return a mutable reference adapter so you can call ownership-taking adapters
+//     // like `take()` without consuming the original iterator.
+//     fn by_ref(&mut self) -> &mut Self
+//     where
+//         Self: Sized;
+//     // Collect all items into a collection type B which implements FromIterator<Item>.
+//     fn collect<B>(self) -> B
+//     where
+//         B: FromIterator<Self::Item>,
+//         Self: Sized;
+//     // Try to collect items where each item is a Try; returns aggregated Try
+//     // result (used for fallible collection).
+//     fn try_collect<B>(
+//         &mut self,
+//     ) -> <<Self::Item as Try>::Residual as Residual<B>>::TryType
+//     where
+//         Self: Sized,
+//         Self::Item: Try,
+//         <Self::Item as Try>::Residual: Residual<B>,
+//         B: FromIterator<<Self::Item as Try>::Output>;
+//     // Extend an existing collection by consuming the iterator and appending items.
+//     fn collect_into<E>(self, collection: &mut E) -> &mut E
+//     where
+//         E: Extend<Self::Item>,
+//         Self: Sized;
+//     // Partition items into two collections B using predicate; returns (true_col, false_col).
+//     fn partition<B, F>(self, f: F) -> (B, B)
+//     where
+//         Self: Sized,
+//         B: Default + Extend<Self::Item>,
+//         F: FnMut(&Self::Item) -> bool;
+//     // Partition in place for a double-ended iterator of mutable references.
+//     // Rearranges elements and returns split index. (Advanced/mutable API.)
+//     fn partition_in_place<'a, T, P>(self, predicate: P) -> usize
+//     where
+//         T: 'a,
+//         Self: Sized + DoubleEndedIterator<Item = &'a mut T>,
+//        P: FnMut(&T) -> bool;
+//     // Check if iterator is already partitioned according to predicate.
+//     fn is_partitioned<P>(self, predicate: P) -> bool
+//     where
+//         Self: Sized,
+//         P: FnMut(Self::Item) -> bool;
+//     // Try-fold: like fold but returns a Try (short-circuits on failure).
+//     fn try_fold<B, F, R>(&mut self, init: B, f: F) -> R
+//     where
+//         Self: Sized,
+//         F: FnMut(B, Self::Item) -> R,
+//         R: Try<Output = B>;
+//     // Try-for-each: like for_each but returns Try; short-circuits on failure.
+//     fn try_for_each<F, R>(&mut self, f: F) -> R
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item) -> R,
+//         R: Try<Output = ()>;
+//     // Fold (reduce with accumulator) over iterator; consumes it.
+//     fn fold<B, F>(self, init: B, f: F) -> B
+//     where
+//         Self: Sized,
+//         F: FnMut(B, Self::Item) -> B;
+//     // Reduce by combining items pairwise with a closure; returns Option (None if empty).
+//     fn reduce<F>(self, f: F) -> Option<Self::Item>
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item, Self::Item) -> Self::Item;
+//     // Try-reduce: reduce where the reducer returns a Try; supports short-circuiting errors.
+//     fn try_reduce<R>(
+//         &mut self,
+//         f: impl FnMut(Self::Item, Self::Item) -> R,
+//     ) -> <<R as Try>::Residual as Residual<Option<<R as Try>::Output>>>::TryType
+//     where
+//         Self: Sized,
+//         R: Try<Output = Self::Item>,
+//         <R as Try>::Residual: Residual<Option<Self::Item>>;
+//     // Test whether all elements satisfy predicate (consumes iterator).
+//     fn all<F>(&mut self, f: F) -> bool
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item) -> bool;
+//     // Test whether any element satisfies predicate (consumes iterator).
+//     fn any<F>(&mut self, f: F) -> bool
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item) -> bool;
+//     // Find the first element for which predicate returns true.
+//     fn find<P>(&mut self, predicate: P) -> Option<Self::Item>
+//     where
+//         Self: Sized,
+//         P: FnMut(&Self::Item) -> bool;
+//     // Map each item with a closure that returns Option<B>, return first Some(B).
+//     fn find_map<B, F>(&mut self, f: F) -> Option<B>
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item) -> Option<B>;
+//     // try_find: like find but the predicate returns a Try<bool>, allowing short-circuiting errors.
+//     fn try_find<R>(
+//         &mut self,
+//         f: impl FnMut(&Self::Item) -> R,
+//     ) -> <<R as Try>::Residual as Residual<Option<Self::Item>>>::TryType
+//     where
+//         Self: Sized,
+//         R: Try<Output = bool>,
+//         <R as Try>::Residual: Residual<Option<Self::Item>>;
+//     // Return the index of the first element matching predicate, or None.
+//     fn position<P>(&mut self, predicate: P) -> Option<usize>
+//     where
+//         Self: Sized,
+//         P: FnMut(Self::Item) -> bool;
+//     // Return index of last matching element (requires DoubleEnded + ExactSize).
+//     fn rposition<P>(&mut self, predicate: P) -> Option<usize>
+//     where
+//         P: FnMut(Self::Item) -> bool,
+//         Self: Sized + ExactSizeIterator + DoubleEndedIterator;
+//     // Return the maximum element (requires Ord on Item).
+//     fn max(self) -> Option<Self::Item>
+//     where
+//         Self: Sized,
+//         Self::Item: Ord;
+//     // Return the minimum element (requires Ord on Item).
+//     fn min(self) -> Option<Self::Item>
+//     where
+//         Self: Sized,
+//         Self::Item: Ord;
+//     // Return the element that maximizes the key returned by f.
+//     fn max_by_key<B, F>(self, f: F) -> Option<Self::Item>
+//     where
+//         B: Ord,
+//         Self: Sized,
+//         F: FnMut(&Self::Item) -> B;
+//     // Return the element that is maximum according to given comparator `compare`.
+//     fn max_by<F>(self, compare: F) -> Option<Self::Item>
+//     where
+//         Self: Sized,
+//         F: FnMut(&Self::Item, &Self::Item) -> Ordering;
+//     // Similarly, min_by_key: element minimizing key.
+//     fn min_by_key<B, F>(self, f: F) -> Option<Self::Item>
+//     where
+//         B: Ord,
+//         Self: Sized,
+//         F: FnMut(&Self::Item) -> B;
+//     // min_by: element minimum by comparator `compare`.
+//     fn min_by<F>(self, compare: F) -> Option<Self::Item>
+//     where
+//         F: FnMut(&Self::Item, &Self::Item) -> Ordering,
+//         Self: Sized;
+//     // Reverse iterator: requires DoubleEndedIterator to iterate from the end.
+//     fn rev(self) -> Rev<Self>
+//     where
+//         Self: Sized + DoubleEndedIterator;
+//     // Unzip an iterator of pairs into two collections (FromA, FromB).
+//     fn unzip<A, B, FromA, FromB>(self) -> (FromA, FromB)
+//     where
+//         FromA: Default + Extend<A>,
+//         FromB: Default + Extend<B>,
+//         Self: Sized + Iterator<Item = (A, B)>;
+//     // Convert iterator of &T where T: Copy into iterator of T (copying).
+//     fn copied<'a, T>(self) -> Copied<Self>
+//     where
+//         T: Copy + 'a,
+//         Self: Sized + Iterator<Item = &'a T>;
+//     // Convert iterator of &T where T: Clone into iterator of T (cloning).
+//     fn cloned<'a, T>(self) -> Cloned<Self>
+//     where
+//         T: Clone + 'a,
+//         Self: Sized + Iterator<Item = &'a T>;
+//     // Cycle the iterator endlessly (requires Clone); use with take() to limit.
+//     fn cycle(self) -> Cycle<Self>
+//     where
+//         Self: Sized + Clone;
+//     // Create iterator that yields items in fixed-size arrays (nightly/stabilized helper).
+//     fn array_chunks<const N: usize>(self) -> ArrayChunks<Self, N>
+//     where
+//         Self: Sized;
+//     // Sum all items, returning type S that implements Sum<Item>.
+//     fn sum<S>(self) -> S
+//     where
+//         Self: Sized,
+//         S: Sum<Self::Item>;
+//     // Multiply (product) all items, returning type P that implements Product<Item>.
+//     fn product<P>(self) -> P
+//     where
+//         Self: Sized,
+//         P: Product<Self::Item>;
+//     // Compare this iterator's sequence to another iterator's sequence lexicographically.
+//     fn cmp<I>(self, other: I) -> Ordering
+//     where
+//         I: IntoIterator<Item = Self::Item>,
+//         Self::Item: Ord,
+//         Self: Sized;
+//     // Compare with custom comparator function element-wise.
+//     fn cmp_by<I, F>(self, other: I, cmp: F) -> Ordering
+//     where
+//         Self: Sized,
+//         I: IntoIterator,
+//         F: FnMut(Self::Item, <I as IntoIterator>::Item) -> Ordering;
+//     // Partial comparison with items that implement PartialOrd.
+//     fn partial_cmp<I>(self, other: I) -> Option<Ordering>
+//     where
+//         I: IntoIterator,
+//         Self::Item: PartialOrd<<I as IntoIterator>::Item>,
+//         Self: Sized;
+//     // Partial comparison with custom comparator.
+//     fn partial_cmp_by<I, F>(self, other: I, partial_cmp: F) -> Option<Ordering>
+//     where
+//         Self: Sized,
+//         I: IntoIterator,
+//         F: FnMut(Self::Item, <I as IntoIterator>::Item) -> Option<Ordering>;
+//     // Check structural equality with another iterator (element-wise).
+//     fn eq<I>(self, other: I) -> bool
+//     where
+//         I: IntoIterator,
+//         Self::Item: PartialEq<<I as IntoIterator>::Item>,
+//         Self: Sized;
+//     // Equality with custom equality comparator.
+//     fn eq_by<I, F>(self, other: I, eq: F) -> bool
+//     where
+//         Self: Sized,
+//         I: IntoIterator,
+//         F: FnMut(Self::Item, <I as IntoIterator>::Item) -> bool;
+//     // Negation of eq: not-equal check.
+//     fn ne<I>(self, other: I) -> bool
+//     where
+//         I: IntoIterator,
+//         Self::Item: PartialEq<<I as IntoIterator>::Item>,
+//         Self: Sized;
+//     // Lexicographic less-than with another iterator (PartialOrd).
+//     fn lt<I>(self, other: I) -> bool
+//     where
+//         I: IntoIterator,
+//         Self::Item: PartialOrd<<I as IntoIterator>::Item>,
+//         Self: Sized;
+//     // Less-or-equal
+//     fn le<I>(self, other: I) -> bool
+//     where
+//         I: IntoIterator,
+//         Self::Item: PartialOrd<<I as IntoIterator>::Item>,
+//         Self: Sized;
+//     // Greater-than
+//     fn gt<I>(self, other: I) -> bool
+//     where
+//         I: IntoIterator,
+//         Self::Item: PartialOrd<<I as IntoIterator>::Item>,
+//         Self: Sized;
+//     // Greater-or-equal
+//     fn ge<I>(self, other: I) -> bool
+//     where
+//         I: IntoIterator,
+//         Self::Item: PartialOrd<<I as IntoIterator>::Item>,
+//         Self: Sized;
+//     // Check whether the iterator is sorted (PartialOrd) in non-decreasing order.
+//     fn is_sorted(self) -> bool
+//     where
+//         Self: Sized,
+//         Self::Item: PartialOrd;
+//     // Check sortedness using a custom comparator function.
+//     fn is_sorted_by<F>(self, compare: F) -> bool
+//     where
+//         Self: Sized,
+//         F: FnMut(&Self::Item, &Self::Item) -> bool;
+//     // Check sortedness by applying key function to items and comparing keys.
+//     fn is_sorted_by_key<F, K>(self, f: F) -> bool
+//     where
+//         Self: Sized,
+//         F: FnMut(Self::Item) -> K,
+//         K: PartialOrd;
+// }
+
+//Type- the keyword type is used to create a type alias.A type gives a new name to an exisiting type, making complex types easier to read or use.
+//type NewName =ExistingType;
+// eg-type Kilometers = i32;
+// fn add_distance(x:Kilometers, y:Kilometers) -> Kilometers {
+//     x +y
+// }
+// fn main(){
+//     let a: Kilometers =5;
+//     let b : kilometers =10;
+//     println!("Total: {}", add_distance(a,b));
+// }
+
+// //Implement a custom iterator in rust
+// struct Counter {
+//     count : u32,
+// }
+// // Associative Function
+// impl Counter {
+//     fn new(start: u32) -> Self {
+//         Self { count: start }
+//     }
+// }
+// impl Iterator for Counter {
+//     type Item =u32;
+//     fn next(&mut self) -> Option<Self::Item> {
+//         if self.count <=5 {
+//             self.count = self.count +1;
+//             return Some(self.count);
+//         } else {
+//             return None;
+//         }
+//     }
+// }
+// fn main() {
+//     let mut count =Counter::new(0);
+//     println!("{:?}", count.next());
+//     println!("{:?}", count.next());
+//     println!("{:?}", count.next());
+//     println!("{:?}", count.next());
+//     println!("{:?}", count.next());
+//     // for val in count{
+//     //     println!("Count: {:?}", val);
+//     // }
+// }
+
+// // Student Report Card System
+// // Struct to store individual student data
+// struct Student {
+//     name: String,
+//     roll: u32,
+//     marks: Vec<u32>,
+// }
+// // Methods for Student
+// impl Student {
+//     fn average(&self) -> f32 {
+//         self.marks.iter().sum::<u32>() as f32 / self.marks.len() as f32
+//     }
+//     fn grade(&self) -> char {
+//         let avg = self.average();
+//         match avg {
+//             x if x >= 90.0 => 'A',
+//             x if x >= 75.0 => 'B',
+//             x if x >= 60.0 => 'C',
+//             _ => 'D',
+//         }
+//     }
+// }
+// // Struct for managing multiple students
+// struct ReportCard {
+//     students: Vec<Student>,
+// }
+// // Functions for ReportCard
+// impl ReportCard {
+//     fn add_student(&mut self, student: Student) -> Result<(), String> {
+//         if self.students.iter().any(|s| s.roll == student.roll) {
+//             return Err("Roll number already exists!".to_string());
+//         }
+//         self.students.push(student);
+//         Ok(())
+//     }
+//     fn remove_student(&mut self, roll: u32) -> Result<(), String> {
+//         if let Some(index) = self.students.iter().position(|s| s.roll == roll) {
+//             self.students.remove(index);
+//             Ok(())
+//         } else {
+//             Err("Roll number not found!".to_string())
+//         }
+//     }
+//     fn find_student(&self, roll: u32) -> Option<&Student> {
+//         self.students.iter().find(|s| s.roll == roll)
+//     }
+//     fn display_all(&self) {
+//         self.students.iter().for_each(|s| s.print());
+//     }
+// }
+// // Trait for printing student record
+// trait Printable {
+//     fn print(&self);
+// }
+// // Implement print method for Student
+// impl Printable for Student {
+//     fn print(&self) {
+//         println!(
+//             "Roll: {} | Name: {} | Avg: {:.2} | Grade: {}",
+//             self.roll,
+//             self.name,
+//             self.average(),
+//             self.grade()
+//         );
+//     }
+// }
+// fn main() {
+//     let s1 = Student {
+//         name: "Sakshi".to_string(),
+//         roll: 1,
+//         marks: vec![95, 88, 92],
+//     };
+//     let s2 = Student {
+//         name: "Faiz".to_string(),
+//         roll: 2,
+//         marks: vec![78, 81, 69],
+//     };
+//     let mut report = ReportCard { students: Vec::new() };
+//     report.add_student(s1).unwrap();
+//     report.add_student(s2).unwrap();
+//     report.display_all();
+//     if let Some(stu) = report.find_student(1) {
+//         println!("\nFound Student:");
+//         stu.print();
+//     }
+// }
+
+//Macros
+
+//Macros -In Rust, macros are a way to perform metaprogramming—writing code that generates other code. 
+//Unlike functions, macros operate at compile-time, which means they are expanded by the compiler before the program is run.
+
+//Types of Macros
+//Rust has two main types of macros:
+// Declarative Macros: Defined using macro_rules!, these are the most common and easier to use. Example - println!(),panic!(),vec![ ] etc.
+//In Rust macros, the $ symbol and the expr are part of the syntax for declarative macros defined with macro_rules!.
+//The $ is used in macros to define placeholders for values or patterns. These placeholders represent the parts of the code you want to match and expand during macro invocation.
+//The $ is used in macros to define placeholders for values or patterns. These placeholders represent the parts of the code you want to match and expand during macro invocation. $value is a placeholder that gets replaced by the argument 42
+//EXAMPLE- macro_rules! say_hello {
+//     () => {
+//         println!("Hello, world!");
+//     };
+// }
+// fn main() {
+//     say_hello!(); // This expands to println!("Hello, world!");
+// }
+//CONVERT
+// macro_rules! repeat_message {
+//     ($msg:expr, $times:expr) => {
+//         for _ in 0..$times {
+//             println!("{}", $msg);
+//         }
+//     };
+// }
+// fn main() {
+//     repeat_message!("Rust is awesome!", 3);
+// }
+// Procedural Macros: More advanced and used for custom derive implementations or attribute-like and function-like macros.
+
+//Fragment Specifier
+// Common fragment specifiers include:
+// expr: Matches any valid Rust expression (e.g., 42, "hello", 1 + 2, etc.).
+// ident: Matches an identifier (e.g., x, my_var, Foo).
+// ty: Matches a type (e.g., i32, String, Vec<i32>).
+// pat: Matches a pattern (e.g., Some(x), 42).
+// block: Matches a block of code (e.g., { println!("Hello"); }).
+// tt: Matches a single token tree, which can be anything valid in Rust's syntax.
+
+//expr- expr is a fragment specifier in Rust's macro syntax. It tells the macro what kind of Rust syntax it should expect to match at that position.
+// $x:expr matches the first argument (5).
+// $y:expr matches the second argument (10).
+// expr means both 5 and 10 are treated as Rust expressions.
+
+//ty-
+// $type:ty: The ty fragment matches the input type (i32 in this case).
+// The macro generates a function new_vector that returns a vector of the specified type.
+//create_vector!(i32) expands to
+
+//name-
+//$name:ident: Matches an identifier for the struct name (e.g., MyStruct).
+//$type:ty: Matches the type of the field (e.g., i32). 
+//create_struct!(MyStruct,i32) expands to:
+
+//Procedural Macro
+// Procedural macros allow for more complex code generation. They come in three forms:
+// Custom Derive Macros: Used to derive traits for structs and enums.
+// Attribute-like Macros: Applied to items like functions or modules.
+// Function-like Macros: Look like function calls but process their input.
+
+// Custom derive procedural macro
+//In this case, the #[derive(Serialize)] macro generates the code required to serialize the User struct to JSON.
+
+//Function-like procedural macro
+//r"\d+" matches one or more digits in a string.
+
+//Attribute-Like Macros
+// Attribute-like macros in Rust are used to apply custom behavior to Rust items such as functions, structs, modules, and more. These macros look like attributes (i.e., #[some_macro]), and they can modify or generate code for the item they are applied to.
+// A common example of an attribute-like macro is #[derive], which automatically implements certain traits (like Debug, Clone, Serialize, etc.) for a struct or enum.
+
+//Error Handling
+
+// Error Categories
+// Recoverable Error - A recoverable error, such as if you try to open a file and that operation fails because the file doesn’t exist, you might want to create the file instead of terminating the process.
+// Unrecoverable Error - Unrecoverable errors are always symptoms of bugs, such as trying to access a location beyond the end of an array, and so we want to immediately stop the program.
+// Note - Most languages don’t distinguish between these two kinds of errors and handle both in the same way, using mechanisms such as exceptions. Rust doesn’t have exceptions. Instead, it has the type Result<T, E> for recoverable errors and the panic! macro that stops execution when the program encounters an unrecoverable error.
+
+// Unrecoverable Errors with panic!
+// There are two ways to cause a panic in practice: by taking an action that causes our code to panic (such as accessing an array past the end) or by explicitly calling the panic! macro.
+
+// Recoverable Errors with Result
+// T represents the type of the value that will be returned in a success case within the Ok variant, and E represents the type of the error that will be returned in a failure case within the Err variant.
+// The File::create function in Rust's std::fs module returns a value of the type Result<File, std::io::Error>.
+// Err(error) if the operation fails, where error is an instance of std::io::Error
+// Ok(file) if the operation succeeds, where file is an instance of std::fs::File
+
+//Recoverable Errors
+//We can use the kind method of the std::io::Error type to determine the type of error. This method returns an ErrorKind enum, which provides variants like NotFound, PermissionDenied, InvalidInput, etc.
+// error.kind():
+// This method retrieves the ErrorKind of the error, which is an enum representing categories of I/O errors.
+// Matching on ErrorKind:
+// Check if the error is ErrorKind::InvalidInput (used for invalid file paths).
+// Use the _ or specific variants for other types of errors, such as PermissionDenied, NotFound, etc.
+
+//unwrap
+//unwrap() with Result, but it will panic if the Result is Err. Using unwrap() without proper context is generally discouraged in production code since it doesn’t allow for customized error handling or meaningful error messages.
+// How unwrap() Works:
+// If the Result is Ok, it extracts the value inside.
+// If the Result is Err, it panics with a default message showing the error.
+
+// unwrap_or_else
+// It allows you to provide a fallback or default value (or perform some logic) when the Option or Result is None or Err, respectively, without panicking.
+
+// Customizable unwrap
+// The |error| in the unwrap_or_else method is a closure in Rust. Closures are anonymous functions that can capture variables from their surrounding scope.
+// In this specific context, |error| is the syntax for a closure that takes one argument, error, representing the Err value from the Result
+
+//expect
+// the expect method lets us also choose the panic! error message. Using expect instead of unwrap and providing good error messages can convey your intent and make tracking down the source of a panic easier.
+// In production-quality code, most Rustaceans choose expect rather than unwrap and give more context about why the operation is expected to always succeed.
+
+//Error Propagation
+//Error propagation allows a function to pass errors to the calling code instead of handling them directly, giving more flexibility to the caller.
+// The ? operator propagates the error from File::create to the calling function (main) if it fails.
+// If successful, it returns the File.
+
+//Clap
+// When you run a program from the command line (terminal), you can pass extra inputs like
+// my_program --name Alice --age 25
+// These extra inputs after the program name (like --name Alice) are called command-line arguments.
+// But your program doesn't automatically understand them — it just sees a list of strings like
+// ["my_program", "--name", "Alice", "--age", "25"]
+// To make sense of these strings, you need to parse them — extract values like:
+// Name = "Alice"
+// Age = 25
+// This process of turning raw strings from the terminal into meaningful variables is called Command Line Argument Parsing
+// use clap::Parser;
+// #[derive(Parser, Debug)]
+// struct Args {
+//     #[arg(long , short)]
+//     name: String,
+// }
+// fn main() {
+//     let args = Args::parse();
+//     println!("Args:{:?}",args);
+// }
+
+//Why do we need a parser in Rust?
+// In Rust, the raw arguments are accessible via
+// std::env::args()
+// But using it manually is tedious, error-prone, and lacks features like:
+// Checking if required arguments are missing
+// Showing help messages
+// Handling different formats (like --name, -n, or positional values)
+// That’s where Clap comes in — it is a command line argument parser library that helps Rust programs understand user inputs from the terminal easily and safely.
+
+//Options
+// Options comes from the pulldown_cmark crate — a popular Markdown parser in Rust.
+// It is a bitflag struct that lets you enable extra features beyond the basic Markdown syntax. These features are not always turned on by default
+// options.insert(Options::ENABLE_STRIKETHROUGH);
+// This tells the parser to support strikethrough syntax (e.g., ~~this~~ becomes this).
+// Without this option, if your Markdown contains ~~text~~, it would just stay as ~~text~~ instead of being converted to <del>text</del> in HTML
+
+// PathBuf
+// PathBuf is a type provided by Rust’s standard library (std::path::PathBuf) that represents a file system path in an owned and growable way.
+// Think of it like a smarter, platform-independent version of a String that understands file paths.
+// Why Use PathBuf Instead of String?
+// Because PathBuf:
+// Is cross-platform safe (handles / vs \ automatically).
+// Can easily join paths (push, join).
+// Works with file APIs like fs::read_to_string, fs::write, etc.
+// Can be converted to/from &str, OsStr, or String.
+
+//html::push_html
+//This is converting parsed Markdown into HTML.
+//html::push_html(&mut html_output, parser);
+//Here's what it does step by step:
+// 1. parser
+// This is an iterator created by MarkdownParser::new_ext(...) — it processes the Markdown text and yields events (like start of a paragraph, text, end of a header, etc.).
+// 2. html::push_html(...)
+// This function consumes that stream of events and writes HTML into the html_output string.
+// markdown_input: raw Markdown text (e.g., "# Hello\nThis is a **test**.")
+// parser: turns that Markdown into a stream of "paragraph started", "text node: 'Hello'", etc.
+// html_output: empty string that you want to fill with HTML
+// html::push_html(...): takes those parsed events and writes the equivalent HTML into the string
+// # Hello
+// This is a **test**.--><h1>Hello</h1><p>This is a <strong>test</strong>.</p>
+
+//Closures- are anonymous functions that can capture variables from their surrounding scope. Closures can be stored in variables, passed as arguments, or returned from functions.
+//Characteristics of Closures
+//They can capture variables from their environment.
+//They can infer types of arguments and return values, but you can also specify them explicitly.
+//Closures implement one of the following traits depending on how they use captured variables:
+//-Fn: Borrows variables immutably.
+//-FnMut: Borrows variables mutably.
+//-FnOnce: Takes ownership of captured variables.
+
+// Closures example
+// fn main() {
+//     let add_one = |x: i32| x+1;
+//     println!("{}", add_one(5));
+//     println!("{}", add_one(15));
+//     println!("{}", add_one(100));
+// }
+// fn main() {
+//     let mut counter = 0;
+//     let mut increase_counter = || {
+//         counter = counter +1;
+//         println!("{}", counter);
+//     };
+//     increase_counter();
+//     increase_counter();
+//     increase_counter();
+// }
+
+// //closures ownership
+// fn main() {
+//     let x: String = String::from("hello");
+//     let consume_and_return_x = || x;
+//     let y = consume_and_return_x(); //ownership of value x gets to closures of y
+//     println!("{}", y);
+//     let z = y; //Ownership of hello gets transferred to z
+//     println!("{}",z)
+// }
+
+// //closures reference by bowwering
+// fn main() {
+//     let x =String::from("Hello");
+//     let consume_and_return_x = || &x;
+//     let y = consume_and_return_x(); 
+//     println!("{}",y);
+//     let z = y;
+//     println!("{}", z);
+// }
+
+// Iterator Adapter Methods
+
+// //Map method(vector to iterator by closure)
+// fn main(){
+//     let vec = vec![1,2,3,4];
+//       let double_vec:Vec<i32> = vec.iter().map(|x|x*2).collect();
+//     println!("{:?}",double_vec);
+//     let double_vec:Vec<i32> = vec.into_iter().map(|x|x*2).collect();
+//     println!("{:?}",double_vec);
+// }
+
+//Filter method(vector to iterator by closure)
+// fn main(){
+//     let vec = vec![1,2,3,4];
+//       let double_vec:Vec<i32> = vec.iter().map(|x|x*2).collect();
+//     println!("{:?}",double_vec);
+//     // let double_vec:Vec<i32> = vec.into_iter().map(|x|x*2).collect();
+//     // println!("{:?}",double_vec);
+//     let even_vec: Vec<&i32> = vec.iter().filter(|x|*x%2==0).collect();
+//      println!("{:?}",even_vec);
+//       let even_vec: Vec<i32> = vec.into_iter().filter(|x|*x%2==0).collect();
+//      println!("{:?}",even_vec);
+// }
+
+// //Reduce method(vector to iterator by closure)
+// fn main(){
+//   let vec = vec![1,3,4,5];
+//   match vec
+//   .into_iter()
+//   .reduce(|accumulator,item| accumulator + item)
+//   {
+//     Some(sum) =>println!("The sum of vector elements is :{}",sum),
+//     None=>println!("None"),
+//   }
+// }
+
+//Why Iterators are Lazy?
+// What does "lazy" mean?
+// It means that:
+// .map(), .filter(), etc. only describe what should happen.
+// The actual action happens only when you consume the iterator
+// fn main() {
+//     let numbers = vec![1, 2, 3, 4, 5];
+//     // Nothing is executed yet
+//     let lazy_iter = numbers.iter().map(|x| {
+//         println!("Mapping {}", x);
+//         x * 2
+//     });
+//     println!("Before consuming iterator");
+//     // Now the iterator is consumed
+//     for value in lazy_iter {
+//         println!("Got: {}", value);
+//     }
+// }
+
+//Packages & Crates
+
+// Package
+// Often synonymous with the "project"
+// One or more crates that provide a set of functionality. More often than not, you will be dealing with only 1 crate in simple programs.
+// Contains a Cargo.toml file that describes how to build those crate
+
+// Crate
+// A crate is a single computational unit - either a binary or a library
+// Binary crate (has a fn main, can be compiled into an executable)
+// Library crate (does not have a fn main, cannot be compiled into an executable)
+// cargo new <name> 
+// creates a new Package with 1 Binary Crate represented by main.rs.
+// This is the option we use most of the time to create a new project
+// cargo new <name> --lib 
+// creates a new Package with 1 Library crate represented by lib.rs. There is no main.rs created.
+// We use this option to create an external library of code that can be used by another project
+
+//Modules and Use
+// Rust finds the function in this sequence:
+// within the current file
+// looks for a ‘.rs’ file with the same name as the module name in the current folder
+// looks for a folder with the module name and a file mod.rs inside, there it looks for the code
+
+//Modules & Use
+// Allow for the organization of code into groups for readability and re-use
+// Allow for the grouping of related definitions together
+// Flexibility for controlling the public / private visibility of items (such as functions), so as to limit their visibility to outside code
+// Can also hold definitions of other items inside, including other modules
+// within the current file
+// // main.rs
+// fn add() {}
+// fn sub() {}
+// fn main() {
+//    add();
+//    sub();
+// }
+//looks for a ‘.rs’ file with the same name as the module name in the current folder
+//main.rs
+// mod math;
+// use math::add;
+// fn main() {
+//     add();
+//     math::sub();
+// }
+//math.rs
+// pub fn add() {
+//     println!("{}", 5 + 6);
+// }
+// pub fn sub() {
+//     println!("{}", 6 - 5);
+// }
+//looks for a folder with the module name and a file mod.rs inside, there it looks for the code.
+// main.rs
+// // declare module
+// mod math;
+// // use * to grant access to everything in math module
+// use math::*; 
+// fn main() {
+//   add();
+//   sub();
+// }
+
+//crate
+// If `add.rs` is a sibling file,
+// you must explicitly declare it
+// so the compiler knows it is a module.
+// mod add;
+// mod math;
+// use math::*;
+// fn main() {
+//     let a: u8 = 5;
+//     let b: u8 = 6;
+//     add_u8(a, b);
+// }
+// use crate::add;
+// pub fn add_u8(x: u8, y: u8) {
+//     add::add_num(x, y);
+// }
+// pub fn add_num(num_one: u8, num_two: u8) {
+//     println!("Result is {}", num_one + num_two);
+// }
+
+// Hashmap
+// In Rust, a HashMap is a key-value store, similar to dictionaries in Python or maps in Java.
+// Key Features:
+// Stores data as key-value pairs.
+// Fast lookup using a hash function.
+// Keys must be unique.
+// Provided by Rust's standard library in std::collections.
+// use std::collections::HashMap;
+// fn main() {
+//     let mut students: HashMap<String, u32> = HashMap::new();
+//     students.insert("Ravi".to_owned(), 100);
+//     students.insert("Raju".to_owned(), 10);
+//     students.insert("Lalu".to_owned(), 1);
+//     for (student, marks) in students.iter() {
+//         println!("Student name:{:?} marks={}", student, marks);
+//     }
+//     students.insert("Raju".to_owned(), 200);
+//     match students.get("Raju") {
+//         Some(marks) => println!("Found:{}", marks),
+//         None => println!("Not Found"),
+//     }
+// }
+
+// Smart Pointers
+//In Rust, a smart pointer is a data structure that not only acts like a pointer (i.e., it allows access to data) but also manages ownership and memory according to specific rules.
+//  Smart Pointer-Description
+// Box<T>-Allocates data on the heap with single ownership. Lightweight.
+// Rc<T>-Reference-counted pointer for shared ownership in single-threaded scenarios.
+// Arc<T>-Atomic reference-counted pointer for shared ownership across threads.
+// RefCell<T>-Allows interior mutability at runtime in a single-threaded context.
+// Mutex<T>-Provides interior mutability with thread safety, blocks access when locked.
+// RwLock<T>-Similar to Mutex<T>, but allows multiple readers or one writer at a time.
+
+// Rust Server with Rocket framework
+ //cargo new name
+// //cd name
+// //cargo run
+// //cargo add serde csv rocket
+// //cargo install cargo-watch
+// //cargo clean
+// //cargo watch
+// use rocket::*;
+// #[get("/home/<name>")]
+// fn hello_user(name:String)-> String {
+//    format!("Hello {}",name)
+// }
+// #[launch]
+// fn rocket()->_{
+//     rocket::build().mount("/", routes![hello_user])
+// }
+//inside toml [dependencies]
+// csv = "1.4.0"
+// rocket = "0.5.1"
+// serde = "1.0.228"
+//inside Rocket.toml
+// [default]
+// address = "127.0.0.1"
+// port = 8080
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+//Lifetime - Three Golden Points
+//The primary objective of lifetimes in Rust is to avoid dangling references
+//Rust reject code that could lead to memory safety issues.
+//When there is a reference, there may be a chance of a dangling reference — and Rust uses lifetimes to prevent that
+
+Dangling Reference
+A dangling reference occurs when a program tries to access data that has already been deallocated or gone out of scope, leading to undefined behavior and potential memory safety issues.
+By tracking the scope for which a reference is valid, Rust's borrow checker can enforce rules at compile time, guaranteeing memory safety without runtime overhead.
